@@ -112,29 +112,3 @@ export function PortScene({ className }: { className?: string }) {
     </svg>
   );
 }
-
-/** Small line globe with the UK → EU lanes — used as the drifting circle on the statement fold. */
-export function RouteGlobe({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 400 400" aria-hidden>
-      <circle cx="200" cy="200" r="190" fill="#101317" stroke="#ede7dc" strokeOpacity="0.25" />
-      {[40, 80, 120, 160].map((r) => (
-        <ellipse key={r} cx="200" cy="200" rx={r} ry="190" fill="none" stroke="#ede7dc" strokeOpacity="0.12" />
-      ))}
-      {[-120, -60, 0, 60, 120].map((y) => (
-        <line key={y} x1="20" x2="380" y1={200 + y} y2={200 + y} stroke="#ede7dc" strokeOpacity="0.12" />
-      ))}
-      <path d="M150 150 Q 210 120 255 175" fill="none" stroke="#e8913c" strokeWidth="2.5" strokeDasharray="5 6" />
-      <path d="M150 150 Q 190 190 215 230" fill="none" stroke="#e8913c" strokeWidth="2.5" strokeDasharray="5 6" />
-      <path d="M150 150 Q 185 140 205 168" fill="none" stroke="#2e6b72" strokeWidth="2.5" />
-      <circle cx="150" cy="150" r="6" fill="#ede7dc" />
-      {[
-        [255, 175],
-        [215, 230],
-        [205, 168],
-      ].map(([x, y]) => (
-        <circle key={`${x}${y}`} cx={x} cy={y} r="4.5" fill="#e8913c" />
-      ))}
-    </svg>
-  );
-}

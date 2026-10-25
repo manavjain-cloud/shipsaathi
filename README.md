@@ -170,3 +170,7 @@ Checked by hand in the browser: a full chat booking including a mid-conversation
 - **HS codes are checked for length and format only**, not against the tariff.
 - **Email**: without a verified sending domain in Resend, only the account owner's address receives mail.
 - Shipment values and rates are GBP only, matching the template. INR isn't used because the case has no explicitly labelled Indian operating costs.
+
+## Credits
+
+- Overview globe: land outlines from Natural Earth (public domain) via [world-atlas](https://github.com/topojson/world-atlas) (ISC), drawn with [d3-geo](https://github.com/d3/d3-geo) and [topojson-client](https://github.com/topojson/topojson-client) (ISC).

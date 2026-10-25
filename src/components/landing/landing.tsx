@@ -5,7 +5,7 @@ import clsx from "clsx";
 import type { CarrierOption, RuleDefinition } from "@/lib/domain/types";
 import { formatGBP } from "@/lib/domain/normalize";
 import { CardDeck } from "./card-deck";
-import { RouteGlobe } from "./port-scene";
+import { RotatingGlobe } from "./globe";
 
 const RULE_TITLES: Record<string, string> = {
   "R-01": "HS code, six digits or more",
@@ -82,7 +82,8 @@ function StatementFold() {
       raf = 0;
       const r = el.parentElement!.getBoundingClientRect();
       const t = (window.innerHeight - r.top) / (window.innerHeight + r.height); // 0 → 1 as the fold passes
-      el.style.transform = `translateY(${(t - 0.5) * -160}px) rotate(${t * 70}deg)`;
+      // Drift only: the globe turns on its own axis (and scroll adds extra spin inside the globe).
+      el.style.transform = `translateY(${(t - 0.5) * -160}px)`; // stacks with the -translate-y-1/2 class (CSS translate property)
     };
     const on = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -96,8 +97,8 @@ function StatementFold() {
   }, []);
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-ground px-4 py-24 sm:px-6">
-      <div ref={ref} className="pointer-events-none absolute -right-[12vw] top-1/2 w-[min(46vw,560px)] -translate-y-1/2 opacity-40">
-        <RouteGlobe className="h-auto w-full" />
+      <div ref={ref} className="pointer-events-none absolute -right-[18vw] top-1/2 w-[min(78vw,420px)] -translate-y-1/2 opacity-35 md:-right-[3vw] md:w-[min(44vw,540px)] md:opacity-70">
+        <RotatingGlobe className="aspect-square w-full" />
       </div>
       <div className="relative mx-auto w-full max-w-[1320px]">
         <div className="label reveal mb-8 flex items-center gap-3 text-bone-2">
