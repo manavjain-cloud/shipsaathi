@@ -1,5 +1,7 @@
 # ShipSaathi — shipment booking & pre-flight checker
 
+**Live demo:** https://shipsaathi-mj-3d6b.vercel.app (no login). Try the chat on New Shipment, or upload [the sample workbook with planted mistakes](https://shipsaathi-mj-3d6b.vercel.app/templates/ShipSaathi_Sample_With_Mistakes.xlsx) on Upload Excel.
+
 ShipSaathi helps Indian manufacturers and sellers book pallet shipments from the UK to Germany, France and the Netherlands without the small mistakes that get goods held at customs or turned away at a warehouse.
 
 - **Chat booking**: describe a shipment in plain English. Gemini pulls out the fields, the app asks only for what's missing, and every edit re-runs the checks.
