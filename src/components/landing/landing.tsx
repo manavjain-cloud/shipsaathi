@@ -273,7 +273,7 @@ export function Landing({ rateCard, rulebook }: { rateCard: CarrierOption[]; rul
             </nav>
           </div>
         </div>
-        <div aria-hidden className="display translate-y-[18%] select-none whitespace-nowrap text-center text-[clamp(36px,9.3vw,200px)] font-extrabold uppercase leading-[0.8] tracking-[-0.04em] text-bone">
+        <div aria-hidden className="display select-none whitespace-nowrap pb-[3vw] pt-2 text-center text-[clamp(36px,9.3vw,200px)] font-extrabold uppercase leading-none tracking-[-0.04em] text-bone">
           ShipSaathi<span className="text-amber">.</span>
         </div>
       </section>
