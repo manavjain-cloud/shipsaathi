@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import type { CarrierOption, RuleDefinition } from "@/lib/domain/types";
@@ -73,47 +73,31 @@ function useReveal() {
 }
 
 function StatementFold() {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || !document.documentElement.classList.contains("motion-ok")) return;
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const r = el.parentElement!.getBoundingClientRect();
-      const t = (window.innerHeight - r.top) / (window.innerHeight + r.height); // 0 → 1 as the fold passes
-      // Drift only: the globe turns on its own axis (and scroll adds extra spin inside the globe).
-      el.style.transform = `translateY(${(t - 0.5) * -160}px)`; // stacks with the -translate-y-1/2 class (CSS translate property)
-    };
-    const on = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", on, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", on);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
+  // Tall section with a sticky stage: the scroll travel drives the globe turning to Europe and zooming in on the lanes.
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-ground px-4 py-24 sm:px-6">
-      <div ref={ref} className="pointer-events-none absolute -right-[18vw] top-1/2 w-[min(78vw,420px)] -translate-y-1/2 opacity-35 md:-right-[3vw] md:w-[min(44vw,540px)] md:opacity-70">
-        <RotatingGlobe className="aspect-square w-full" />
-      </div>
-      <div className="relative mx-auto w-full max-w-[1320px]">
-        <div className="label reveal mb-8 flex items-center gap-3 text-bone-2">
-          <span className="h-px w-8 bg-teal" /> Why pre-flight
+    <section className="statement-fold relative bg-ground">
+      <div className="sticky top-0 flex min-h-screen items-center overflow-hidden px-4 py-24 sm:px-6">
+        <div className="pointer-events-none absolute -right-[22vw] top-1/2 w-[min(84vw,440px)] -translate-y-1/2 opacity-40 md:-right-[5vw] md:w-[min(42vw,600px)] md:opacity-90">
+          <RotatingGlobe className="aspect-square w-full" />
         </div>
-        <p className="display reveal max-w-[22ch] text-[clamp(24px,3.6vw,52px)] font-semibold leading-[1.12] tracking-[-0.02em] text-bone">
-          Most customs holds start as a small mistake on a booking form. ShipSaathi reads your shipment, runs ten exact checks and <span className="text-amber">names the fix</span> before the truck arrives.
-        </p>
-        <div className="reveal mt-14 flex items-end gap-6">
-          <span className="outline-numeral display text-[clamp(96px,16vw,220px)] font-extrabold leading-[0.8]">10</span>
-          <p className="max-w-[34ch] pb-3 text-[15px] leading-relaxed text-bone-2">
-            Rules from the fixed rulebook — six Red that stop a shipment, four Amber worth a second look. Numbers are checked by code, never by AI judgement.
+        <div className="relative mx-auto w-full max-w-[1320px]">
+          <div className="label reveal mb-8 flex items-center gap-3 text-bone-2">
+            <span className="h-px w-8 bg-teal" /> Why pre-flight
+          </div>
+          <p className="display reveal max-w-[22ch] text-[clamp(24px,3.6vw,52px)] font-semibold leading-[1.12] tracking-[-0.02em] text-bone">
+            Most customs holds start as a small mistake on a booking form. ShipSaathi reads your shipment, runs ten exact checks and <span className="text-amber">names the fix</span> before the truck arrives.
           </p>
+          <div className="reveal mt-14 flex items-end gap-6">
+            <span className="outline-numeral display text-[clamp(96px,16vw,220px)] font-extrabold leading-[0.8]">10</span>
+            <p className="max-w-[34ch] pb-3 text-[15px] leading-relaxed text-bone-2">
+              Rules from the fixed rulebook — six Red that stop a shipment, four Amber worth a second look. Numbers are checked by code, never by AI judgement.
+            </p>
+          </div>
         </div>
       </div>
+      <style>{`
+        html.motion-ok .statement-fold { height: 230vh; }
+      `}</style>
     </section>
   );
 }
