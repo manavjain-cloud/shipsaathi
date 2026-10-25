@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/*
+ * Two grounds, one type system.
+ *  - "Label" (dark): the Overview landing — near-black ground, bone ink, amber + teal pulled from the hero scene.
+ *  - "Desk" (light): the working tools — off-white ground, deep navy ink, restrained indigo/teal accents.
+ * Accents stay on type, dots and rules; never filled areas.
+ */
+@theme inline {
+  --color-ground: #0a0c0e;
+  --color-ground-2: #101317;
+  --color-bone: #ede7dc;
+  --color-bone-2: #9ea5a8;
+  --color-bone-muted: #6c7378;
+  --color-amber: #e8913c;
+  --color-teal: #2e6b72;
+  --color-teal-bright: #3f8f98;
+
+  --color-paper: #f7f6f2;
+  --color-card: #ffffff;
+  --color-ink: #0e1b33;
+  --color-ink-2: #3c4658;
+  --color-ink-3: #6b7383;
+  --color-line: #e4e2dc;
+  --color-line-2: #d6d3cb;
+  --color-indigo: #3b4cc0;
+
+  --color-red: #b42318;
+  --color-red-soft: #fef3f2;
+  --color-amberw: #b54708;
+  --color-amberw-soft: #fffaeb;
+  --color-green: #067647;
+  --color-green-soft: #ecfdf3;
+
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --hairline-dark: rgba(237, 231, 220, 0.13);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+.hairline-dark {
+  border-color: var(--hairline-dark);
+}
+
+.focus-ring:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-indigo);
+  outline-offset: 2px;
+}
+
+/* Entry reveals: only active once JS confirms reduced motion is off (html.motion-ok). They fire once and never un-reveal. */
+html.motion-ok .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html.motion-ok .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.outline-numeral {
+  -webkit-text-stroke: 1px rgba(237, 231, 220, 0.45);
+  color: transparent;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.typing-dot {
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
