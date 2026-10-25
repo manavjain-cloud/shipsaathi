@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-import { Truck } from "./truck";
+import { Truck, YardTractor } from "./truck";
 
 /**
  * Portal hero. Everything is bound to scroll POSITION through one CSS variable (--p, 0 → 1),
@@ -52,13 +52,24 @@ export function PortalHero({ routes, services }: { routes: string; services: num
               src="/hero/port-dusk-3168.webp"
               srcSet="/hero/port-dusk-1600.webp 1600w, /hero/port-dusk-3168.webp 3168w"
               sizes="(max-width: 700px) 1600px, max(100vw, 236vh)"
-              alt="Container port at dusk: gantry cranes, a container ship and an empty quay road"
+              alt="Container port at dusk: gantry cranes, a container ship, straddle carriers, a reach stacker and trucks on the quay"
               fetchPriority="high"
               decoding="async"
               className="absolute inset-0 h-full w-full select-none object-cover"
               draggable={false}
             />
-            {/* the truck drives along the quay as the portal opens */}
+            {/* traffic on the quay, all bound to scroll. Far → near so nearer vehicles paint on top. */}
+            <div className="portal-far absolute">
+              <div className="vehicle-mirror h-full w-full">
+                <Truck className="block h-full w-full" container="rust" />
+              </div>
+            </div>
+            <div className="portal-yard absolute">
+              <div className="vehicle-mirror h-full w-full">
+                <YardTractor className="block h-full w-full" />
+              </div>
+            </div>
+            {/* the hero truck drives along the near lane as the portal opens */}
             <div className="portal-truck absolute">
               <Truck className="block h-full w-full" />
             </div>
@@ -118,6 +129,31 @@ export function PortalHero({ routes, services }: { routes: string; services: num
           will-change: transform;
         }
         .truck-wheel { transform: rotate(var(--wheel-rot)); }
+        .vehicle-mirror { transform: scaleX(-1); }
+        /* Lane positions use simple perspective from the horizon (~58% down the photo): size ∝ distance below it. */
+        /* far lane, driving left, slow: enters from the right and ends near the left edge */
+        .portal-far {
+          top: 68.4%;
+          height: 7.9%;
+          aspect-ratio: 420 / 110;
+          left: 50%;
+          --wheel-rot: calc(var(--p) * 5200deg);
+          transform: translateX(calc(50vw - var(--p) * 92vw));
+          filter: brightness(0.82) saturate(0.85);
+          will-change: transform;
+        }
+        /* middle lane, driving left, quicker: crosses the whole frame */
+        .portal-yard {
+          --tp2: clamp(0, calc((var(--p) - 0.12) / 0.83), 1);
+          --wheel-rot: calc(var(--tp2) * 9000deg);
+          top: 71.6%;
+          height: 8.8%;
+          aspect-ratio: 300 / 80;
+          left: 50%;
+          transform: translateX(calc(50vw - var(--tp2) * (100vw + 100%)));
+          filter: brightness(0.9);
+          will-change: transform;
+        }
         .portal-duotone {
           background: linear-gradient(120deg, #e8913c 0%, #2e6b72 100%);
           mix-blend-mode: overlay;
