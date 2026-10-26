@@ -1,6 +1,6 @@
 /**
  * Builds a SAMPLE upload (demo input, not results) from the supplied template, with planted mistakes
- * covering every rule plus malformed rows. Output: public/templates/ShipSaathi_Sample_With_Mistakes.xlsx
+ * covering every rule plus malformed rows. Output: public/templates/PreFly_Sample_With_Mistakes.xlsx
  *
  *   npx tsx scripts/make-sample.ts
  */
@@ -50,7 +50,7 @@ async function main() {
   const i = wb.getWorksheet("Items")!;
   bookings.forEach((r, k) => b.getRow(4 + k).values = r as ExcelJS.CellValue[]);
   items.forEach((r, k) => i.getRow(4 + k).values = r as ExcelJS.CellValue[]);
-  const out = path.join(process.cwd(), "public", "templates", "ShipSaathi_Sample_With_Mistakes.xlsx");
+  const out = path.join(process.cwd(), "public", "templates", "PreFly_Sample_With_Mistakes.xlsx");
   await wb.xlsx.writeFile(out);
   console.log("Wrote", out);
 }

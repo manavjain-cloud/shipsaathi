@@ -27,8 +27,8 @@ export function Nav() {
       )}
     >
       <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="display text-[15px] font-extrabold tracking-[-0.02em]" aria-label="ShipSaathi home">
-          ShipSaathi<span className="text-amber">.</span>
+        <Link href="/" className="display text-[15px] font-extrabold tracking-[-0.02em]" aria-label="PreFly home">
+          PreFly<span className="text-amber">.</span>
         </Link>
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
           {LINKS.map((l) => (
@@ -87,7 +87,7 @@ export function NavFallback() {
     <header className="fixed inset-x-0 top-0 z-50 h-[58px] border-b border-line bg-[rgba(247,246,242,.82)] text-ink backdrop-blur-[14px]">
       <div className="mx-auto flex h-full max-w-[1320px] items-center justify-between px-4 sm:px-6">
         <Link href="/" className="display text-[15px] font-extrabold tracking-[-0.02em]">
-          ShipSaathi<span className="text-amber">.</span>
+          PreFly<span className="text-amber">.</span>
         </Link>
         <Link href="/new" className="label rounded-full border border-ink bg-ink px-4 py-2 text-paper">
           New shipment

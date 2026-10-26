@@ -10,9 +10,9 @@ const syne = Syne({ variable: "--font-syne", subsets: ["latin"], weight: ["600",
 const sora = Sora({ variable: "--font-sora", subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
-  title: "ShipSaathi — shipment booking & pre-flight checks",
+  title: "PreFly — shipment booking & pre-flight checks",
   description:
-    "Describe a shipment in plain English or upload your booking sheet. ShipSaathi checks ten pre-flight rules, explains every fix and recommends a carrier from the rate card.",
+    "Describe a shipment in plain English or upload your booking sheet. PreFly checks ten pre-flight rules, explains every fix and recommends a carrier from the rate card.",
 };
 
 export const viewport: Viewport = {

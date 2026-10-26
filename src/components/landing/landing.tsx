@@ -85,7 +85,7 @@ function StatementFold() {
             <span className="h-px w-8 bg-teal" /> Why pre-flight
           </div>
           <p className="display reveal max-w-[22ch] text-[clamp(24px,3.6vw,52px)] font-semibold leading-[1.12] tracking-[-0.02em] text-bone">
-            Most customs holds start as a small mistake on a booking form. ShipSaathi reads your shipment, runs ten exact checks and <span className="text-amber">names the fix</span> before the truck arrives.
+            Most customs holds start as a small mistake on a booking form. PreFly reads your shipment, runs ten exact checks and <span className="text-amber">names the fix</span> before the truck arrives.
           </p>
           <div className="reveal mt-14 flex items-end gap-6">
             <span className="outline-numeral display text-[clamp(96px,16vw,220px)] font-extrabold leading-[0.8]">10</span>
@@ -244,7 +244,7 @@ export function Landing({ rateCard, rulebook }: { rateCard: CarrierOption[]; rul
             <div>
               <h2 className="display text-[clamp(30px,4vw,56px)] font-bold leading-[1.02] tracking-[-0.03em]">Book it right the first time.</h2>
               <p className="mt-4 max-w-[60ch] text-xs leading-relaxed text-bone-muted">
-                ShipSaathi creates proposed bookings — it doesn&apos;t book carriers for you. The ten checks catch common mistakes but are not a full customs or dangerous-goods review.
+                PreFly creates proposed bookings — it doesn&apos;t book carriers for you. The ten checks catch common mistakes but are not a full customs or dangerous-goods review.
                 Transit times and on-time rates are averages from the rate card, not guarantees.
               </p>
             </div>
@@ -273,8 +273,8 @@ export function Landing({ rateCard, rulebook }: { rateCard: CarrierOption[]; rul
             </nav>
           </div>
         </div>
-        <div aria-hidden className="display select-none whitespace-nowrap pb-[3vw] pt-2 text-center text-[clamp(36px,9.3vw,200px)] font-extrabold uppercase leading-none tracking-[-0.04em] text-bone">
-          ShipSaathi<span className="text-amber">.</span>
+        <div aria-hidden className="display select-none whitespace-nowrap pb-[3vw] pt-2 text-center text-[clamp(52px,14vw,280px)] font-extrabold uppercase leading-none tracking-[-0.04em] text-bone">
+          PreFly<span className="text-amber">.</span>
         </div>
       </section>
     </div>

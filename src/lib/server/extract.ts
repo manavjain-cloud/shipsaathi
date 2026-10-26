@@ -66,7 +66,7 @@ export interface ExtractionResult {
 }
 
 function systemPrompt(today: string): string {
-  return `You extract shipment booking details for ShipSaathi, a pre-flight checker for sellers shipping pallets by road from the United Kingdom to Germany, France or the Netherlands.
+  return `You extract shipment booking details for PreFly, a pre-flight checker for sellers shipping pallets by road from the United Kingdom to Germany, France or the Netherlands.
 
 Today is ${displayDate(today)} (DD-MM-YYYY, UK time).
 

@@ -78,11 +78,11 @@ export function UploadClient() {
         title="Check a whole booking sheet at once"
         actions={
           <>
-            <a href="/templates/ShipSaathi_Booking_Template.xlsx" download className="inline-flex items-center gap-2 rounded-full border border-line-2 bg-card px-4 py-2 text-sm text-ink hover:border-ink">
+            <a href="/templates/PreFly_Booking_Template.xlsx" download className="inline-flex items-center gap-2 rounded-full border border-line-2 bg-card px-4 py-2 text-sm text-ink hover:border-ink">
               <Download className="h-4 w-4" /> Blank template
             </a>
             <a
-              href="/templates/ShipSaathi_Sample_With_Mistakes.xlsx"
+              href="/templates/PreFly_Sample_With_Mistakes.xlsx"
               download
               title="Demo input with deliberate mistakes for every rule — not real bookings"
               className="inline-flex items-center gap-2 rounded-full border border-line-2 bg-card px-4 py-2 text-sm text-ink hover:border-ink"

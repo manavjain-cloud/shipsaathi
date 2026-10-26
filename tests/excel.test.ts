@@ -128,7 +128,7 @@ describe("parseWorkbook", () => {
 
 describe("sample workbook with planted mistakes", () => {
   it("flags the intended rule on each booking", async () => {
-    const file = readFileSync(path.join(process.cwd(), "public", "templates", "ShipSaathi_Sample_With_Mistakes.xlsx"));
+    const file = readFileSync(path.join(process.cwd(), "public", "templates", "PreFly_Sample_With_Mistakes.xlsx"));
     const r = await parseWorkbook(new Uint8Array(file));
     expect(r.ok).toBe(true);
     // Dates in the sample are relative to the day it was generated; evaluate against that window.
