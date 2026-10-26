@@ -38,7 +38,7 @@ export function renderEmail(b: Booking, a: Assessment, kind: "summary" | "report
 
   const html = `<!doctype html><html><body style="margin:0;background:#F7F6F2;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
   <div style="max-width:620px;margin:0 auto;padding:28px 20px">
-    <div style="font-weight:800;font-size:18px;color:#0E1B33">PreFly<span style="color:#E8913C">.</span></div>
+    <div style="font-weight:800;font-size:18px;color:#0E1B33">SaathiFly<span style="color:#E8913C">.</span></div>
     <h1 style="font-size:22px;color:#0E1B33;margin:18px 0 4px">${esc(kind === "report" ? "Pre-flight validation report" : "Proposed booking summary")}</h1>
     <div style="display:inline-block;margin:6px 0 18px;padding:4px 10px;border-radius:999px;border:1px solid ${STATUS_COLOR[a.status]};color:${STATUS_COLOR[a.status]};font-size:13px;font-weight:600">${esc(STATUS_LABEL[a.status])}</div>
     <div style="background:#fff;border:1px solid #E4E2DC;border-radius:10px;padding:18px 20px">
@@ -62,7 +62,7 @@ export function renderEmail(b: Booking, a: Assessment, kind: "summary" | "report
     ${dataHtml}
     ${link ? `<p style="margin:22px 0"><a href="${esc(link)}" style="background:#0E1B33;color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none;font-size:14px">Open the full report</a></p>` : ""}
     <p style="font-size:12px;color:#5B6472;line-height:1.5;border-top:1px solid #E4E2DC;padding-top:14px;margin-top:24px">
-      This is a <strong>proposed</strong> booking. No carrier has been booked — PreFly has no live carrier integration. Prices, transit times and on-time rates come from the fixed rate card and are not a delivery guarantee.
+      This is a <strong>proposed</strong> booking. No carrier has been booked — SaathiFly has no live carrier integration. Prices, transit times and on-time rates come from the fixed rate card and are not a delivery guarantee.
       ${esc(a.disclaimer)}
     </p>
   </div></body></html>`;
@@ -88,7 +88,7 @@ export async function sendEmail(to: string, subject: string, html: string, text:
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_FROM || "PreFly <onboarding@resend.dev>",
+      from: process.env.RESEND_FROM || "SaathiFly <onboarding@resend.dev>",
       to: [to],
       subject,
       html,

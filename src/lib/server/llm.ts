@@ -66,8 +66,8 @@ export async function completeJSON<T>(
   try {
     const headers: Record<string, string> = { "Content-Type": "application/json", Authorization: `Bearer ${p.key}` };
     if (p.name === "openrouter") {
-      headers["HTTP-Referer"] = "https://prefly-app.vercel.app";
-      headers["X-Title"] = "PreFly";
+      headers["HTTP-Referer"] = "https://saathifly.vercel.app";
+      headers["X-Title"] = "SaathiFly";
     }
     const res = await fetch(p.url, { method: "POST", headers, body: JSON.stringify(body), signal: ctrl.signal });
     if (!res.ok) {

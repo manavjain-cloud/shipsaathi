@@ -1,4 +1,4 @@
--- PreFly schema (Neon Postgres). Safe to re-run.
+-- SaathiFly schema (Neon Postgres). Safe to re-run.
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 CREATE TABLE IF NOT EXISTS uploads (

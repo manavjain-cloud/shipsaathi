@@ -41,7 +41,7 @@ export function PortalHero({ routes, services }: { routes: string; services: num
   }, []);
 
   return (
-    <section ref={sectionRef} className="portal-section relative bg-ground" aria-label="PreFly">
+    <section ref={sectionRef} className="portal-section relative bg-ground" aria-label="SaathiFly">
       <div ref={stageRef} className="portal-stage sticky top-0 isolate h-screen overflow-hidden">
         {/* 1. full-bleed photo, settles from overscale to 1. The "cover" box keeps the photo's aspect ratio,
                so the truck stays on the quay road however the photo is cropped. */}
@@ -88,8 +88,8 @@ export function PortalHero({ routes, services }: { routes: string; services: num
 
         {/* 6. the wordmark, split in two */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-          <h1 className="portal-title display whitespace-nowrap text-center font-extrabold uppercase leading-none text-bone" aria-label="PreFly">
-            <span className="portal-half-a inline-block">Pre</span>
+          <h1 className="portal-title display whitespace-nowrap text-center font-extrabold uppercase leading-none text-bone" aria-label="SaathiFly">
+            <span className="portal-half-a inline-block">Saathi</span>
             <span className="portal-half-b inline-block">Fly</span>
           </h1>
           <p className="portal-sub label mt-[4.5vw] px-6 text-center text-bone">Shipment booking &amp; pre-flight checks for Indian exporters</p>
@@ -164,7 +164,7 @@ export function PortalHero({ routes, services }: { routes: string; services: num
         .portal-dot-a { transform: translate(calc(-50% - 44vw * var(--p)), calc(-50% - 40vh * var(--p))); opacity: calc(1 - 0.4 * var(--p)); }
         .portal-dot-b { transform: translate(calc(-50% + 44vw * var(--p)), calc(-50% + 40vh * var(--p))); opacity: calc(1 - 0.4 * var(--p)); }
         .portal-title {
-          font-size: clamp(38px, 8.6vw, 168px);
+          font-size: clamp(28px, 6.4vw, 124px);
           letter-spacing: calc(0.06em - 0.09em * var(--p));
           transform: scale(calc(1 + 0.18 * var(--p)));
         }

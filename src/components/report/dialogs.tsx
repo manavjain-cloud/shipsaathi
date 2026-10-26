@@ -116,7 +116,7 @@ export function ConfirmDialog({ open, onClose, assessment, onConfirm }: { open: 
               {" "}with <b className="text-ink">{c.option.carrier} ({c.option.service})</b> at <b className="text-ink">{formatGBP(c.cost)}</b>
             </>
           ) : null}
-          . PreFly does not book carriers directly — there&apos;s no live carrier integration — so nothing is sent to a carrier.
+          . SaathiFly does not book carriers directly — there&apos;s no live carrier integration — so nothing is sent to a carrier.
         </p>
         <div className="rounded-lg border border-line bg-paper px-3 py-2.5">
           <div className="label mb-1 text-ink-3">What happens next</div>

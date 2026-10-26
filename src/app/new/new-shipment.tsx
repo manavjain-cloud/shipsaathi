@@ -24,7 +24,7 @@ const STARTERS = [
   "2 pallets of steel cookware, Birmingham to Rotterdam, about 900 kg, as fast as possible.",
 ];
 
-const STORE_KEY = "prefly:chat-draft:v1";
+const STORE_KEY = "saathifly:chat-draft:v1";
 
 interface Draft {
   booking: Booking;

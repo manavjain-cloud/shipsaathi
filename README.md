@@ -1,8 +1,8 @@
-# PreFly — shipment booking & pre-flight checker
+# SaathiFly — shipment booking & pre-flight checker
 
-**Live demo:** https://prefly-app.vercel.app (no login; the earlier address https://shipsaathi-mj-3d6b.vercel.app still works). Try the chat on New Shipment, or upload [the sample workbook with planted mistakes](https://prefly-app.vercel.app/templates/PreFly_Sample_With_Mistakes.xlsx) on Upload Excel.
+**Live demo:** https://saathifly.vercel.app (no login; the earlier addresses prefly-app.vercel.app and shipsaathi-mj-3d6b.vercel.app still work). Try the chat on New Shipment, or upload [the sample workbook with planted mistakes](https://saathifly.vercel.app/templates/SaathiFly_Sample_With_Mistakes.xlsx) on Upload Excel.
 
-PreFly helps Indian manufacturers and sellers book pallet shipments from the UK to Germany, France and the Netherlands without the small mistakes that get goods held at customs or turned away at a warehouse.
+SaathiFly helps Indian manufacturers and sellers book pallet shipments from the UK to Germany, France and the Netherlands without the small mistakes that get goods held at customs or turned away at a warehouse.
 
 - **Chat booking**: describe a shipment in plain English. Gemini pulls out the fields, the app asks only for what's missing, and every edit re-runs the checks.
 - **Excel upload**: upload the Bookings + Items sheets from the supplied template. Every booking and item goes through the same checks.
@@ -10,7 +10,7 @@ PreFly helps Indian manufacturers and sellers book pallet shipments from the UK 
 - **Carrier recommendation** from the fixed rate card, by priority: Cheapest, Fastest, Most reliable or Balanced.
 - **Confirm and email**: confirm a *proposed* booking (blocked while Red errors remain) and email a summary or validation report through Resend.
 
-> PreFly does **not** book carriers. There's no carrier integration: a confirmed booking is the seller's confirmed proposal. The ten checks catch common mistakes. They are not a full customs, dangerous-goods or export-compliance review.
+> SaathiFly does **not** book carriers. There's no carrier integration: a confirmed booking is the seller's confirmed proposal. The ten checks catch common mistakes. They are not a full customs, dangerous-goods or export-compliance review.
 
 ## Architecture
 
@@ -104,7 +104,7 @@ Fill in `.env.local`:
 | `GEMINI_API_KEY` *or* `OPENROUTER_API_KEY` | chat, AI hazard review, plain-English summary | A Google AI Studio key calls Gemini directly. An OpenRouter key calls `google/gemini-*` through OpenRouter. |
 | `GEMINI_MODEL` | optional | Defaults: `gemini-2.5-flash` (Google) / `google/gemini-3.5-flash` (OpenRouter) |
 | `RESEND_API_KEY` | email | Without a verified domain, Resend only delivers to the Resend account owner's address. |
-| `RESEND_FROM` | email | Defaults to `PreFly <onboarding@resend.dev>` |
+| `RESEND_FROM` | email | Defaults to `SaathiFly <onboarding@resend.dev>` |
 
 Create the tables (safe to re-run):
 
@@ -136,7 +136,7 @@ npm run typecheck
 npm run extract:reference
 ```
 
-`npx tsx scripts/make-sample.ts` rebuilds `public/templates/PreFly_Sample_With_Mistakes.xlsx`, a demo upload with deliberate mistakes for every rule (sample input only, not real bookings).
+`npx tsx scripts/make-sample.ts` rebuilds `public/templates/SaathiFly_Sample_With_Mistakes.xlsx`, a demo upload with deliberate mistakes for every rule (sample input only, not real bookings).
 
 The app degrades gracefully. Without Gemini, the chat says so and the editable form still works. Without a database, uploads are validated but not saved. Without Resend, email shows a clear "not configured" error.
 
